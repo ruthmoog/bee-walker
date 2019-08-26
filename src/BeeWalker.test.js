@@ -1,12 +1,15 @@
 import React from 'react'
-import {render} from '@testing-library/react'
+import {render, fireEvent} from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import BeeWalker from './BeeWalker'
 
 describe('tracker', () => {
   it('greets you with a bee', () => {
-    const result = render(<BeeWalker />)
-    expect(result.getByTestId('greeting-text')).toHaveTextContent('BEE')
+    const {getByTestId, getByText} = render(<BeeWalker />)
+    expect(getByTestId('greeting-text')).toHaveTextContent('BEE')
+    expect(getByTestId('bee-counter')).toHaveTextContent('0')
+    fireEvent.click(getByText('Count bee'))
+    expect(getByTestId('bee-counter')).toHaveTextContent('1')
   })
 })
 
