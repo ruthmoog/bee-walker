@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
+import BeeWalker from "./BeeWalker";
 
 function App() {
-  return 'Hello World'
+  return <BeeWalker />;
 }
 
 export default App;
