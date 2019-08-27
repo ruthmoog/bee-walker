@@ -61,6 +61,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 
 ### Deployment
 
+- Should automatically deploy thru Heroku here: https://bee-walker.herokuapp.com/
+
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
 ### `npm run build` fails to minify
