@@ -38,6 +38,12 @@ describe("tracker", () => {
       fireEvent.click(getByText("Count male"));
       expect(getByTestId("male-counter")).toHaveTextContent("1");
     });
+    
+    it("unknowns", () => {
+      expect(getByTestId("unknown-counter")).toHaveTextContent("0");
+      fireEvent.click(getByText("Count unknown"));
+      expect(getByTestId("unknown-counter")).toHaveTextContent("1");
+    });
 
     it("increments only the selected caste", () => {
       fireEvent.click(getByText("Count worker"));
