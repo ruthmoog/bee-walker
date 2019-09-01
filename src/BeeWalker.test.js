@@ -4,19 +4,18 @@ import "@testing-library/jest-dom/extend-expect";
 import BeeWalker from "./BeeWalker";
 
 describe("tracker", () => {
-  it("greets you with a bee", () => {
+  it("greets you with a bee species", () => {
+    const { getByTestId } = render(<BeeWalker species="bombus hortorum" />);
+    expect(getByTestId("greeting-text")).toHaveTextContent("bombus hortorum");
+  });
+
+  it("counts queens", () => {
     const { getByTestId, getByText } = render(
       <BeeWalker species="bombus terrestris" />
     );
-    expect(getByTestId("greeting-text")).toHaveTextContent("bombus terrestris");
-    expect(getByTestId("bee-counter")).toHaveTextContent("0");
-    fireEvent.click(getByText("Count bee"));
-    expect(getByTestId("bee-counter")).toHaveTextContent("1");
-  });
-
-  it("greets you with a different bee", () => {
-    const { getByTestId } = render(<BeeWalker species="bombus hortorum" />);
-    expect(getByTestId("greeting-text")).toHaveTextContent("bombus hortorum");
+    expect(getByTestId("queen-counter")).toHaveTextContent("0");
+    fireEvent.click(getByText("Count queen"));
+    expect(getByTestId("queen-counter")).toHaveTextContent("1");
   });
 });
 

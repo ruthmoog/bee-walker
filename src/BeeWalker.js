@@ -5,8 +5,8 @@ function BeeWalker(props) {
   return (
     <>
       <p data-testid="greeting-text">{props.species}</p>
-      <button onClick={() => setCount(count + 1)}>Count bee</button>
-      <p data-testid="bee-counter">bees: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Count queen</button>
+      <p data-testid="queen-counter">queens: {count}</p>
     </>
   );
 }
