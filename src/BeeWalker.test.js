@@ -10,23 +10,39 @@ describe("tracker", () => {
   });
 
   describe("counts", () => {
-    it("queens", () => {
-      const { getByTestId, getByText } = render(
+
+    let getByTestId, getByText
+
+    beforeEach(() => {
+      const stuff  = render(
         <BeeWalker species="bombus terrestris" />
       );
+      getByTestId = stuff.getByTestId
+      getByText = stuff.getByText
+    })
+
+    it("queens", () => {
       expect(getByTestId("queen-counter")).toHaveTextContent("0");
       fireEvent.click(getByText("Count queen"));
       expect(getByTestId("queen-counter")).toHaveTextContent("1");
     });
 
     it("workers", () => {
-      const { getByTestId, getByText } = render(
-        <BeeWalker species="bombus terrestris" />
-      );
       expect(getByTestId("worker-counter")).toHaveTextContent("0");
       fireEvent.click(getByText("Count worker"));
       expect(getByTestId("worker-counter")).toHaveTextContent("1");
+    });
+    
+    it("males", () => {
+      expect(getByTestId("male-counter")).toHaveTextContent("0");
+      fireEvent.click(getByText("Count male"));
+      expect(getByTestId("male-counter")).toHaveTextContent("1");
+    });
+
+    it("increments only the selected caste", () => {
+      fireEvent.click(getByText("Count worker"));
       expect(getByTestId("queen-counter")).toHaveTextContent("0");
+      expect(getByTestId("male-counter")).toHaveTextContent("0");
     });
   });
 });
