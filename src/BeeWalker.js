@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 
 function BeeWalker(props) {
-  const [count, setCount] = useState(0);
+  const [queenCount, setQueenCount] = useState(0);
+  const [workerCount, setWorkerCount] = useState(0);
+
   return (
     <>
-      <p data-testid="greeting-text">{props.species}</p>
-      <button onClick={() => setCount(count + 1)}>Count queen</button>
-      <p data-testid="queen-counter">queens: {count}</p>
+      <h1 data-testid="greeting-text">{props.species}</h1>
+      <dl>
+        <dt>Queens</dt>
+        <dd data-testid="queen-counter">{queenCount}</dd>
+        <dt>Workers</dt>
+        <dd data-testid="worker-counter">{workerCount}</dd>
+      </dl>
+      <button onClick={() => setQueenCount(queenCount + 1)}>Count queen</button>
+      <button onClick={() => setWorkerCount(workerCount + 1)}>
+        Count worker
+      </button>
     </>
   );
 }

@@ -4,18 +4,30 @@ import "@testing-library/jest-dom/extend-expect";
 import BeeWalker from "./BeeWalker";
 
 describe("tracker", () => {
-  it("greets you with a bee species", () => {
+  it("displays a bee species", () => {
     const { getByTestId } = render(<BeeWalker species="bombus hortorum" />);
     expect(getByTestId("greeting-text")).toHaveTextContent("bombus hortorum");
   });
 
-  it("counts queens", () => {
-    const { getByTestId, getByText } = render(
-      <BeeWalker species="bombus terrestris" />
-    );
-    expect(getByTestId("queen-counter")).toHaveTextContent("0");
-    fireEvent.click(getByText("Count queen"));
-    expect(getByTestId("queen-counter")).toHaveTextContent("1");
+  describe("counts", () => {
+    it("queens", () => {
+      const { getByTestId, getByText } = render(
+        <BeeWalker species="bombus terrestris" />
+      );
+      expect(getByTestId("queen-counter")).toHaveTextContent("0");
+      fireEvent.click(getByText("Count queen"));
+      expect(getByTestId("queen-counter")).toHaveTextContent("1");
+    });
+
+    it("workers", () => {
+      const { getByTestId, getByText } = render(
+        <BeeWalker species="bombus terrestris" />
+      );
+      expect(getByTestId("worker-counter")).toHaveTextContent("0");
+      fireEvent.click(getByText("Count worker"));
+      expect(getByTestId("worker-counter")).toHaveTextContent("1");
+      expect(getByTestId("queen-counter")).toHaveTextContent("0");
+    });
   });
 });
 
