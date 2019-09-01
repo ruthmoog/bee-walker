@@ -1,22 +1,24 @@
-import React from 'react'
-import {render, fireEvent} from '@testing-library/react'
-import '@testing-library/jest-dom/extend-expect'
-import BeeWalker from './BeeWalker'
+import React from "react";
+import { render, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import BeeWalker from "./BeeWalker";
 
-describe('tracker', () => {
-  it('greets you with a bee', () => {
-    const {getByTestId, getByText} = render(<BeeWalker species="bombus terrestris"/>)
-    expect(getByTestId('greeting-text')).toHaveTextContent('bombus terrestris')
-    expect(getByTestId('bee-counter')).toHaveTextContent('0')
-    fireEvent.click(getByText('Count bee'))
-    expect(getByTestId('bee-counter')).toHaveTextContent('1')
-  })
+describe("tracker", () => {
+  it("greets you with a bee", () => {
+    const { getByTestId, getByText } = render(
+      <BeeWalker species="bombus terrestris" />
+    );
+    expect(getByTestId("greeting-text")).toHaveTextContent("bombus terrestris");
+    expect(getByTestId("bee-counter")).toHaveTextContent("0");
+    fireEvent.click(getByText("Count bee"));
+    expect(getByTestId("bee-counter")).toHaveTextContent("1");
+  });
 
-  it('greets you with a different bee', () => {
-    const {getByTestId} = render(<BeeWalker species="bombus hortorum" />)
-    expect(getByTestId('greeting-text')).toHaveTextContent('bombus hortorum')
-  })
-})
+  it("greets you with a different bee", () => {
+    const { getByTestId } = render(<BeeWalker species="bombus hortorum" />);
+    expect(getByTestId("greeting-text")).toHaveTextContent("bombus hortorum");
+  });
+});
 
 // // __tests__/fetch.test.js
 // import React from 'react'
