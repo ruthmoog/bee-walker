@@ -82,6 +82,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/co
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size -->
 
+
 <!-- ### Advanced Configuration
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration -->
@@ -89,6 +90,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 ### CI/CD
 
 Continuous Integration via Travis CI
+
 Automatic deploment via Heroku here: https://bee-walker.herokuapp.com/
 
 <!-- This section has moved here: https://facebook.github.io/create-react-app/docs/deployment -->
