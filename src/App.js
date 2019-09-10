@@ -1,12 +1,12 @@
 import React from "react";
-import BeeWalker from "./BeeWalker";
+import BeeCounter from "./BeeCounter";
 
 function App() {
   return (
     <>
-      <BeeWalker species="bombus terrestris" />
-      <BeeWalker species="bombus lucorum" />
-      <BeeWalker species="bombus pratorum" />
+      <BeeCounter species="bombus terrestris" />
+      <BeeCounter species="bombus lucorum" />
+      <BeeCounter species="bombus pratorum" />
     </>
   );
 }
